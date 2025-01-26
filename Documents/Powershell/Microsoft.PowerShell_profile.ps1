@@ -5,3 +5,14 @@ function conf { git --git-dir="$HOME\.conf.git\" --work-tree=$HOME $args }
   Set-Alias -Name npp -Value "$env:PROGRAMFILES\Notepad++\notepad++.exe"
 # prevent conf rm removing from working tree
   Set-Alias -Name "conf rm" -Value "conf rm --cached"
+function mtime {
+    param (
+        [ScriptBlock]$Command
+    )
+    
+    $executionTime = [math]::round((Measure-Command {
+        & $Command
+    }).TotalSeconds, 2)
+    
+    Write-Output "`t`t`t$executionTime s"
+}

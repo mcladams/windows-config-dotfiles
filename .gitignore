@@ -1,42 +1,42 @@
-scoop/
-.android/
-.bash_history
-.cache/
-.conf.git/
-.config/scoop/
-.git/
-.gnupg/
-.lesshst
-.ssh/
-.vscode/
-.vscode-insiders/
-3D Objects
-Books
-Docs_sym
-AppData
-Contacts
-Desktop
-Documents/*
-!Documents/Powershell/*
-Documents/Powershell/Help/
-Documents/Powershell/Modules
-!Documents/WindowsPowerShell/*
-Documents/WindowsPowerShell/Help
-Documents/WindowsPowerShell/Modules
-Downloads
-Favorites
-/git/
-IntelGraphicsProfiles
-Links/
-Music
-OneDrive/
+# git ignore file for my windows home directory a bare git repo with gitdir .conf.git
+
+# windows ntfs hidden files PS: (Get-ChildItem -Hidden).Name >> .gitignore
+AppData/
+Application\ Data/
+Cookies/
+Local\ Settings/
+My\ Documents/
+NetHood/
+PrintHood/
+Recent/
+SendTo/
+Start\ Menu/
+Templates/
 NTUSER*
-Pictures
-Portables
-Recorded Calls/
-Saved Games/
+
+# Directories to ignore PS: (Get-ChildItem -Directory).Name >> .gitignore
+.conf.git/
+.vscode/
+3D Objects/
+Contacts/
+Desktop/
+Documents/
+Downloads/
+Favorites/
+Music/
+OneDrive/
+Pictures/
+scoop/
 Searches/
-test*
-Videos
-navdb.csv
-ntuser*
+Videos/
+
+# Directories with exclusions
+!Documents/PowerShell/
+!Documents/PowerShell/*
+Documents/PowerShell/Help/
+.wslconfig
+.bash_history
+C:\Users\Mike\bz*
+C:\Users\Mike\config*
+Docs/
+bzImage*
