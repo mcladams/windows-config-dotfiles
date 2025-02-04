@@ -53,3 +53,5 @@ vscode-remote-wsl/
 Tracing/
 bz*
 CaseSens/
+certs/
+.wslconfig
