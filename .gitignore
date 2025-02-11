@@ -58,3 +58,5 @@ terminal-config-backup.json
 Documents/Powershell/Modules/*
 Documents/Powershell/Scripts/*
 _viminfo
+certs/
+.wslconfig
