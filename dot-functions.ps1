@@ -13,32 +13,8 @@ function Own-Full-Perms {
     icacls "$_path" /grant:r ${env:USERNAME}:F /T /L /C /Q
 }
 
-
-# Make directory subtree case-sensitive (even not empty) by moving data to new sensitive dirs
-function Move-CaseSensitive-InPlace {
-    param ( [string]$_path )
-
-    # Define dirs
-    $_dirs = @($_path) + (Get-ChildItem -Path $_path -Recurse -Directory).FullName
-
-    # Loop through each, rename, create new case sensitive, move contents, remove
-    foreach ($_dir in $_dirs) {
-        # Rename orig -> temp, create new empty orig
-        Rename-Item -Path $_dir -NewName "${_dir}__"
-        New-Item -Path $_dir -ItemType Directory
-
-        # At the PS prompt, simply entering 'fsutil.exe file SetCaseSensitiveInfo $_dir enable' works but not in script
-        Start-Process -FilePath "fsutil.exe" -ArgumentList "file SetCaseSensitiveInfo $_dir enable" `
-          -Wait -NoNewWindow -RedirectStandardOutput $null
-
-        # Move contents from the renamed folder & then remove empty folder
-        Get-ChildItem -Path "${_dir}__" | Move-Item -Destination $_dir
-        # better check _dir is empty before deletion
-        if (Get-ChildItem -path "${_dir}__") {
-            Write-Host "${_dir}__ not empty. Exiting."
-            exit
-        } else {
-            Remove-Item -Path "${_dir}__"
-        }
-    }
-}
+# Frequent robocopy options
+function robosync { robocopy $args /E /ZB /SJ /SL /COPYALL /DCOPY:DATE /MT /R:1 /W:0 /NS /NC /NFL /NDL /ETA }
+function robosync-noown { robocopy $args /E /ZB /SJ /SL /COPY:DAT /DCOPY:DAT /MT /R:1 /W:0 /NS /NC /NFL /NDL /ETA }
+function robosync-purge { robocopy $args /E /PURGE /ZB /SJ /SL /COPYALL /DCOPY:DATE /MT /R:1 /W:0 /NS /NC /NFL /NDL /ETA }
+function zls { zfs.exe list -o name,used,available,referenced,overlay,canmount,mounted,driveletter,mountpoint  }

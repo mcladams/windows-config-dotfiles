@@ -1,33 +1,36 @@
 # ensure ssh-agent will work for gcm
-# Set-Service ssh-agent -StartupType Manual
-####! this works:: start-service -name ssh-agent
+start-service -name ssh-agent
+
+Set-PSResourceRepository -Name PSGallery -Trusted
 
 # import our modules
-foreach ($psmod in (Get-ChildItem -Path $HOME\Documents\Powershell\Modules).Name) {
+$modlist="pstools"
+foreach ($psmod in $modlist) {
     Import-Module $psmod
-    Write-Host "$psmod loaded - try `"Get-Command -Modules $psmod`""
+#    Write-Host "$psmod loaded - try `"Get-Command -Module $psmod`""
 }
-
-# powershell profile for dotconf git; use 'conf' not 'git' in $HOME
-function conf { git --git-dir="$HOME\.conf.git\" --work-tree=$HOME $args }
 
 # aliases
   Set-Alias -Name npp -Value "$env:PROGRAMFILES\Notepad++\notepad++.exe"
 # prevent conf rm removing from working tree
-  Set-Alias -Name "conf rm" -Value "conf rm --cached"
-
-### disabled for now
-# try { $null = gcm pshazz -ea stop; pshazz init 'default' } catch { }
-###
+# Set-Alias -Name "conf rm" -Value "conf rm --cached"
 
 # variables
 Set-Variable -Name "EDITOR" -Option "AllScope" -Scope "Global" -Value "nano"
 
-# prompt
+# powershell profile for dotconf git; use 'conf' not 'git' in $HOME
+function conf { git --git-dir="$HOME\.conf.git\" --work-tree=$HOME $args }
+
+# source functions
+. $HOME\dot-functions.ps1
+
+# set prompt
+$installed = winget list --id JanDeDobbeleer.OhMyPosh
+if ( $installed -eq "No installed package found matching input criteria." ) {
+    winget install --accept-source-agreements --accept-package-agreements JanDeDobbeleer.OhMyPosh
+}
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kali.omp.json" | Invoke-Expression
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\jandedobbeleer.omp.json" | Invoke-Expression
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\night-owl.omp.json" | Invoke-Expression
 
-#  Set-PSRepository -Name PSGallery  -InstallationPolicy Trusted
-# pstools - powershellget - psreadline - winget - PSWindowsUpdate
-# Install-Module Takeown; install-moodule aptpackage; install-module robocopy; install-module sysinternals
+conf status --short

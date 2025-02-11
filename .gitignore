@@ -16,13 +16,12 @@ Docs_sym
 AppData
 Contacts
 Desktop
-Documents/
-!Documents/Powershell/
+Documents/*
+!Documents/Powershell
+!Documents/Powershell/*
 Documents/Powershell/Help/
 !Documents/Powershell/Modules
 !Documents/WindowsPowerShell/
-Documents/WindowsPowerShell/Help/
-!Documents/WindowsPowerShell/Modules
 Downloads/
 Favorites/
 git/
@@ -41,7 +40,6 @@ Videos/
 navdb.csv
 ntuser*
 .wslconfig
-.wslconfig
 .p4merge/
 DL/
 Doc/
@@ -53,3 +51,10 @@ vscode-remote-wsl/
 Tracing/
 bz*
 CaseSens/
+Docs/
+terminal-config-backup.json
+.wsllconfig
+.zenmap/
+Documents/Powershell/Modules/*
+Documents/Powershell/Scripts/*
+_viminfo
