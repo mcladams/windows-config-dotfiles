@@ -1,0 +1,16 @@
+Soulseek.SoulseekQt
+Valve.Steam
+AntibodySoftware.WizTree
+notepad++.notepad++
+open-shell.open-shell-menu
+qbittorrent.qbittorrent
+PeterPawlowski.foobar2000
+PeterPawlowski.foobar2000.EncoderPack
+XnSoft.XnView.Classic
+FlorianHeidenreich.Mp3tag
+ShareX.ShareX
+VideoLAN.VLC
+DominikReichl.KeePass
+KeePassXCTeam.KeePassXC
+Gyan.FFmpeg
+videolan.vlc
