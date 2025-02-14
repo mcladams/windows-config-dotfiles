@@ -1,13 +1,12 @@
-
 # Setup Powershell Environment
 
 # function to test if a command is installed
 function need_command {
-     param ([string]$cmdname)
-        $doInstall = $true
+    param ([string]$cmdname)
+    $doInstall = $true
     $command = Get-Command $cmdname -ErrorAction SilentlyContinue
     if ($command) { $doInstall = $false }
-        return $doInstall
+    return $doInstall
 }
 
 function install_scoop {
@@ -63,5 +62,5 @@ winget install Microsoft.PowerToys
 
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kali.omp.json" | Invoke-Expression
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\jandedobbeleer.omp.json" | Invoke-Expression
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\night-owl.omp.json" | Invoke-Expression
+$HOME\AppData\Local\Programs\oh-my-posh\bin\oh-my-posh.exe init pwsh --config "$env:POSH_THEMES_PATH\night-owl.omp.json" | Invoke-Expression
 vimtutor
