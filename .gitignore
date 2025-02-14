@@ -60,3 +60,15 @@ Documents/Powershell/Scripts/*
 _viminfo
 certs/
 .wslconfig
+.wslconfig*
+Application Data/
+Cookies/
+Dropbox/
+FastCopy/
+Local Settings/
+My Documents/
+Recent/
+SendTo/
+Virtual Machines/
+Start Menu/
+.obs32/*.Metrics
