@@ -19,6 +19,7 @@ if ( need_command scoop -eq $true ) { install_scoop }
 # scoop install essentials
 scoop install 7zip curl aria2 git-with-openssh
 scoop config aria2-warning-enabled false
+Set-Service ssh-agent -StartupType Manual
 
 # note: later scoop installs of a command overwrite previous shim
 scoop install busybox
@@ -32,15 +33,11 @@ scoop install lxrunoffline vcredist2022
 
 # linux utils
 scoop install grep sed gawk nano vim psutils
-# rust apps
 scoop install fd ripgrep bat duf dust lsd broot
 scoop install delta zoxide czkawka hyperfine
 
-# scoop install neovim wsl-ssh-agent
-# sudo Set-Service ssh-agent -StartupType Manual
-
-scoop install concfg
-concfg export terminal-config-backup.json
+#scoop install concfg
+#concfg export terminal-config-backup.json
 
 Set-PSResourceRepository -Name PSGallery -Trusted
 Install-PSResource pstools
@@ -49,18 +46,14 @@ Install-PSResource Takeown
 Install-PSResource RoboCopy
 Install-PSResource Wsl
 
+winget install AntibodySoftware.WizTree
+winget install notepad++.notepad++
+winget install open-shell.open-shell-menu
 winget install DEVCOM.JetBrainsMonoNerdFont
 winget install JanDeDobbeleer.OhMyPosh
-
+winget install HermannSchinagl.LinkShellExtension
 winget install QL-Win.QuickLook
-winget install CodingWondersSoftware.DISMTools.Stable
-winget install DevToys-app.DevToys
-winget install Microsoft.Sysinternals.PsTools
-winget install AutomatedLab.AutomatedLab
-winget install Github.cli
-winget install Microsoft.PowerToys
 
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kali.omp.json" | Invoke-Expression
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\jandedobbeleer.omp.json" | Invoke-Expression
-$HOME\AppData\Local\Programs\oh-my-posh\bin\oh-my-posh.exe init pwsh --config "$env:POSH_THEMES_PATH\night-owl.omp.json" | Invoke-Expression
-vimtutor
+oh-my-posh.exe init pwsh --config "$env:POSH_THEMES_PATH\night-owl.omp.json" | Invoke-Expression

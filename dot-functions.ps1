@@ -1,9 +1,5 @@
-#!"C:\Program Files\PowerShell\7\pwsh.EXE"
 # dot-functions.ps1
-# source this in the nomal way to use the functions and add to $PROFILE
-    # Get-Alias
-    # Get-Variable
-    # Get-Command -CommandType Function
+# source this in the nomal way to use the functions and make sure to add to $PROFILE
 
 # Recursively take ownership and set owner with full permissions
 function Own-Full-Perms {

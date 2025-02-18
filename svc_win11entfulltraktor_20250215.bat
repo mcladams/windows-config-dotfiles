@@ -1,5 +1,5 @@
 @echo off
-echo Restore Service Startup State saved at 02/14/2025 12:13:36
+echo Restore Service Startup State saved at 02/15/2025 12:32:34
 sc.exe config ALG start= demand
 sc.exe config "AMD Crash Defender Service" start= disabled
 sc.exe config AppIDSvc start= demand
@@ -67,7 +67,6 @@ sc.exe config EntAppSvc start= demand
 sc.exe config esifsvc start= auto
 sc.exe config EventLog start= auto
 sc.exe config EventSystem start= auto
-sc.exe config Fax start= demand
 sc.exe config fdPHost start= demand
 sc.exe config FDResPub start= demand
 sc.exe config fhsvc start= demand
@@ -81,7 +80,6 @@ sc.exe config GoogleUpdaterService134.0.6985.0 start= auto
 sc.exe config gpsvc start= auto
 sc.exe config GraphicsPerfSvc start= demand
 sc.exe config hidserv start= demand
-sc.exe config HNS start= demand
 sc.exe config HvHost start= demand
 sc.exe config IBMPMSVC start= auto
 sc.exe config ibtsiva start= auto
@@ -134,7 +132,6 @@ sc.exe config NIHardwareService start= auto
 sc.exe config NlaSvc start= demand
 sc.exe config nsi start= auto
 sc.exe config NTKDaemonService start= delayed-auto
-sc.exe config nvagent start= demand
 sc.exe config NVDisplay.ContainerLocalSystem start= disabled
 sc.exe config ose start= disabled
 sc.exe config PcaSvc start= delayed-auto
@@ -213,7 +210,7 @@ sc.exe config TimeBrokerSvc start= demand
 sc.exe config TokenBroker start= demand
 sc.exe config TrkWks start= auto
 sc.exe config TroubleshootingSvc start= demand
-sc.exe config TrustedInstaller start= auto
+sc.exe config TrustedInstaller start= demand
 sc.exe config tzautoupdate start= disabled
 sc.exe config UevAgentService start= disabled
 sc.exe config UmRdpService start= demand
@@ -222,7 +219,6 @@ sc.exe config UserManager start= auto
 sc.exe config UsoSvc start= delayed-auto
 sc.exe config VaultSvc start= auto
 sc.exe config vds start= demand
-sc.exe config vmcompute start= demand
 sc.exe config vmicguestinterface start= demand
 sc.exe config vmicheartbeat start= demand
 sc.exe config vmickvpexchange start= demand

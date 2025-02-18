@@ -12,7 +12,7 @@ winget install Microsoft.Sysinternals.PsTools
 winget install Github.cli
 winget install Microsoft.PowerToys
 #winget install CodingWondersSoftware.DISMTools.Stable
-# winget install AutomatedLab.AutomatedLab
+#winget install AutomatedLab.AutomatedLab
 
 # Music stuff
 winget install Soulseek.SoulseekQt
