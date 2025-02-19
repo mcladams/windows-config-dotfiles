@@ -239,14 +239,14 @@
 ## For all details, see 'man nanorc', section SYNTAX HIGHLIGHTING.
 
 ## To include most of the existing syntax definitions, you can do:
-# include "c:/scoop/apps/nano/current/syntax/*.nanorc"
+# include "C:/Users/mikex/scoop/apps/nano/current/syntax/*.nanorc"
 
 ## Or you can select just the ones you need.  For example:
-# include "c:/scoop/apps/nano/current/syntax/html.nanorc"
-# include "c:/scoop/apps/nano/current/syntax/python.nanorc"
-# include "c:/scoop/apps/nano/current/syntax/sh.nanorc"
+# include "C:/Users/mikex/scoop/apps/nano/current/syntax/html.nanorc"
+# include "C:/Users/mikex/scoop/apps/nano/current/syntax/python.nanorc"
+# include "C:/Users/mikex/scoop/apps/nano/current/syntax/sh.nanorc"
 
-## In c:/scoop/apps/nano/current/syntax/extra/ you can find some syntaxes that are
+## In C:/Users/mikex/scoop/apps/nano/current/syntax/extra/ you can find some syntaxes that are
 ## specific for certain distros or for some less common languages.
 
 
@@ -329,4 +329,4 @@
 #bind ^U "{mark}{home}{zap}" main
 #bind ^Z undo main
 #bind ^Y redo main
-include "~/scoop/apps/nano/current/syntax/*.nanorc"
+include "C:/Users/mikex/scoop/apps/nano/current/syntax/*.nanorc"

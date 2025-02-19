@@ -1,42 +1,82 @@
-# git ignore file for my windows home directory a bare git repo with gitdir .conf.git
-
-# windows ntfs hidden files PS: (Get-ChildItem -Hidden).Name >> .gitignore
-AppData/
-Application\ Data/
+.android/
+.bash_history
+.cache/
+.conf.git/
+.config/scoop/
+.git/
+.gnupg/
+.lesshst
+.obs32/*.Metrics
+.p4merge/
+.ssh/
+.viminfo
+.vscode-insiders/
+.vscode/*
+.vscode/extensions/*
+.vscode/extensions/windows-used-extensions.json__!
+.vscode/extensions/linux-used-extensions.json__!
+.wsl*
+.zenmap/*
+.zenmap/zenmap.conf__!
+.zenmap/saved_scans__!
+.zenmap/saved_scans/*__!
+3D Objects/
+AppData/*
+Application Data/
+Books/
+CaseSens/
+Contacts/
 Cookies/
-Local\ Settings/
-My\ Documents/
+DL/
+Desktop/
+Doc/
+Docs/
+Docs_sym/
+Documents/*
+Documents/PowerShell__!
+Documents/PowerShell/*__!
+Documents/PowerShell/Help/
+Documents/Powershell/Modules/*
+Documents/Powershell/Scripts/*
+Documents/WindowsPowerShell/__!
+Downloads/
+Dropbox/
+FastCopy/
+Favorites/
+IntelGraphicsProfiles/
+Links/
+Local Settings/
+Mus/
+Music/
+My Documents/
+NTUSER*
 NetHood/
+OneDrive/
+Pics/
+Pictures/
+Portables/
 PrintHood/
 Recent/
-SendTo/
-Start\ Menu/
-Templates/
-NTUSER*
-
-# Directories to ignore PS: (Get-ChildItem -Directory).Name >> .gitignore
-.conf.git/
-.vscode/
-3D Objects/
-Contacts/
-Desktop/
-Documents/
-Downloads/
-Favorites/
-Music/
-OneDrive/
-Pictures/
-scoop/
+Recorded Calls/
+Saved Games/
 Searches/
+SendTo/
+Start Menu/
+Templates/
+Tracing/
 Videos/
-
-# Directories with exclusions
-!Documents/PowerShell/
-!Documents/PowerShell/*
-Documents/PowerShell/Help/
-.wslconfig
-.bash_history
-C:\Users\Mike\bz*
-C:\Users\Mike\config*
-Docs/
-bzImage*
+Vids/
+Virtual Machines/
+_viminfo
+bz*
+certs/
+config*
+git/
+navdb.csv
+ntuser*
+scoop/
+terminal-config-backup.json
+test*
+vscode-remote-wsl/
+*.log
+*~
