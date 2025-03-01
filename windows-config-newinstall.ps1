@@ -46,6 +46,7 @@ Install-PSResource Takeown
 Install-PSResource RoboCopy
 Install-PSResource Wsl
 
+winget install hickford.git-credential-oauth
 winget install AntibodySoftware.WizTree
 winget install notepad++.notepad++
 winget install open-shell.open-shell-menu
