@@ -80,3 +80,4 @@ test*
 vscode-remote-wsl/
 *.log
 *~
+VulkanSDK/
