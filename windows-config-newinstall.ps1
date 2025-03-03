@@ -19,7 +19,6 @@ if ( need_command scoop -eq $true ) { install_scoop }
 # scoop install essentials
 scoop install 7zip curl aria2 git-with-openssh
 scoop config aria2-warning-enabled false
-Set-Service ssh-agent -StartupType Manual
 
 # note: later scoop installs of a command overwrite previous shim
 scoop install busybox
@@ -39,22 +38,28 @@ scoop install delta zoxide czkawka hyperfine
 #scoop install concfg
 #concfg export terminal-config-backup.json
 
+# set sudo alias from psutils and enable ssh-agent
+#set-alias -Name ssudo -Value $HOME\scoop\shims\sudo.ps1
+#ssudo Set-Service ssh-agent -StartupType Manual
+
 Set-PSResourceRepository -Name PSGallery -Trusted
+Install-PSResource powershellget
 Install-PSResource pstools
 Install-PSResource Winget
 Install-PSResource Takeown
 Install-PSResource RoboCopy
 Install-PSResource Wsl
 
-winget install hickford.git-credential-oauth
-winget install AntibodySoftware.WizTree
-winget install notepad++.notepad++
-winget install open-shell.open-shell-menu
-winget install DEVCOM.JetBrainsMonoNerdFont
-winget install JanDeDobbeleer.OhMyPosh
-winget install HermannSchinagl.LinkShellExtension
-winget install QL-Win.QuickLook
 
+# oh-my-posh won't be in the current path
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kali.omp.json" | Invoke-Expression
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\jandedobbeleer.omp.json" | Invoke-Expression
-oh-my-posh.exe init pwsh --config "$env:POSH_THEMES_PATH\night-owl.omp.json" | Invoke-Expression
+# oh-my-posh.exe init pwsh --config "$env:POSH_THEMES_PATH\night-owl.omp.json" | Invoke-Expression
+
+
+#Start-Process -FilePath "powershell.exe" -ArgumentList "-NoExit", "-Command", "&{Set-Location -Path $PWD; Start-Sleep -Milliseconds 500}"
+#Start-Process -FilePath "powershell.exe" -ArgumentList "-NoExit", "-Command", "&{Set-Location -Path $PWD; Start-Sleep -Milliseconds 500}" -File "$HOME\windows-config-moreinstall.ps1" -Verb RunAs
+
+$restartCommand = "pwsh.exe -NoExit -Command `"&{Set-Location -Path $PWD; Start-Process pwsh.exe -ArgumentList '-File', 'C:\Users\Mike\windows-config-moreinstall.ps1' -Verb RunAs}`""
+Invoke-Expression $restartCommand
+exit
