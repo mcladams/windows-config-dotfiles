@@ -21,3 +21,5 @@
 [credential]
 	helper = wincred
 	helper = oauth
+[pull]
+	rebase = true
