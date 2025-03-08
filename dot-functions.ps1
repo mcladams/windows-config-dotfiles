@@ -22,6 +22,15 @@ function mtime {
     Write-Output "`t`t`t$executionTime s"
 }
 
+function IsAdmin {
+    $IsAdmininstrator = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    if ($IsAdmininstrator) {
+        Write-Output "The PowerShell session is running with elevated privileges (as Administrator)."
+    } else {
+        Write-Output "The PowerShell session is not running with elevated privileges."
+    }
+}
+
 # Frequent robocopy options
 function robosync { robocopy $args /E /ZB /SJ /SL /COPYALL /DCOPY:DATE /MT /R:1 /W:0 /NS /NC /NFL /NDL /ETA }
 function robosync-noown { robocopy $args /E /ZB /SJ /SL /COPY:DAT /DCOPY:DAT /MT /R:1 /W:0 /NS /NC /NFL /NDL /ETA }
