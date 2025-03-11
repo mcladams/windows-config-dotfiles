@@ -81,3 +81,9 @@ vscode-remote-wsl/
 *.log
 *~
 VulkanSDK/
+<<<<<<< HEAD
+=======
+.arduinoIDE/*
+Documents/PowerShell/powershell.config.json
+.wslconfig
+>>>>>>> 2f81125 (Commit from old win installation)
