@@ -13,13 +13,13 @@
 .vscode-insiders/
 .vscode/*
 .vscode/extensions/*
-.vscode/extensions/windows-used-extensions.json__!
-.vscode/extensions/linux-used-extensions.json__!
+!.vscode/extensions/windows-used-extensions.json
+!.vscode/extensions/linux-used-extensions.json
 .wsl*
 .zenmap/*
-.zenmap/zenmap.conf__!
-.zenmap/saved_scans__!
-.zenmap/saved_scans/*__!
+!.zenmap/zenmap.conf
+!.zenmap/saved_scans
+!.zenmap/saved_scans/*
 3D Objects/
 AppData/*
 Application Data/
@@ -33,12 +33,13 @@ Doc/
 Docs/
 Docs_sym/
 Documents/*
-Documents/PowerShell__!
-Documents/PowerShell/*__!
+!Documents/PowerShell
+!Documents/PowerShell/*
+Documents/PowerShell/powershell.config.json
 Documents/PowerShell/Help/
 Documents/Powershell/Modules/*
 Documents/Powershell/Scripts/*
-Documents/WindowsPowerShell/__!
+!Documents/WindowsPowerShell/
 Downloads/
 Dropbox/
 FastCopy/
@@ -81,3 +82,5 @@ vscode-remote-wsl/
 *.log
 *~
 VulkanSDK/
+.arduinoIDE/*
+.wslconfig
