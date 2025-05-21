@@ -1,3 +1,5 @@
+# firstrun.ps1 and/or firstrun.cmd bootstrap (1) TLS 1.2 in powewrshell.exe profile to enable upgrade powershellget & nuget & set up pwsh7
+# for convenvience run via naughty 
 ### moved to dot-functions.ps1
 # Setup Powershell Environment
 function conf { git --git-dir=$HOME\.conf.git\ --work-tree=$HOME $args }
@@ -77,6 +79,7 @@ Install-PSResource PSWindowsUpdate
 #Start-Process -FilePath "powershell.exe" -ArgumentList "-NoExit", "-Command", "&{Set-Location -Path $PWD; Start-Sleep -Milliseconds 500}"
 #Start-Process -FilePath "powershell.exe" -ArgumentList "-NoExit", "-Command", "&{Set-Location -Path $PWD; Start-Sleep -Milliseconds 500}" -File "$HOME\windows-config-moreinstall.ps1" -Verb RunAs
 
+# _TODO_ Tested snippet opens new admin pwsh windows - maybe use windows terminal if installed by this point but don't fuck up workint transition.
 $restartCommand = "pwsh.exe -NoExit -Command `"&{Set-Location -Path $PWD; Start-Process pwsh.exe -ArgumentList '-File', 'C:\Users\Mike\windows-config-moreinstall.ps1' -Verb RunAs}`""
 Invoke-Expression $restartCommand
 exit
