@@ -3,21 +3,23 @@ function CompactAll_Vhd {
     if ($args.Count -eq 0) {
         $drives = Get-PSDrive -PSProvider FileSystem | Where-Object { `
           $_.Root -match '^[A-Z]:\\$' }
-        $args = $drives.Root -join ' '
+        $args = ($drives.Root) -join ' '
     }
-     # find all the vhdx files using fd-find fd.exe (scoop install fd)
-    $vhdpaths = fd.exe -H -a -i -tf -g *.vhdx
-    foreach ($vhdfile in $vhdfiles) {
-        Write-Host "Processing $vhdfile... " -NoNewLine
-        if ( $(fsutil sparse queryFlag $vhdfile) -eq "This file is set as sparse" ) {
-            $sparseVhds += $vhdfile + " "
-            fsutil sparce setFlag $vhdfile 0
-            Write-Host "unset sparse... " -NoNewLine
+     Write-Host "args are $args"
+	 # find all the vhdx files using fd-find fd.exe (scoop install fd)
+    $vhdpaths = fd.exe -H -a -i -tf -g *.vhdx $args
+    foreach ($vhdx in $vhdpaths) {
+        Write-Host "Processing $vhdx... "
+        if ( $(fsutil sparse queryFlag $vhdx) -eq "This file is set as sparse" ) {
+            $sparseVhds += $vhdx + " "
+            fsutil sparse setFlag $vhdx 0
+            Write-Host "Unset sparse flag. "
         }
-        [int]$origSize= (Get-Item -Path $vhdfile).Length
-        Optimize-Vhd -Path $vhdfile -Mode Full
-        [int]$newSize= (Get-Item -Path $vhdfile).Length
+        [int]$origSize= (Get-Item -Path $vhdx).Length
+        Optimize-Vhd -Path $vhdx -Mode Full
+        [int]$newSize= (Get-Item -Path $vhdx).Length
+		$sizeGB = [math]::round($newSize / 1GB, 2)
         [int]$cRatio = $origSize * 100 / $newSize
-        Write-Host "fin. Compression ratio $cRatio%"
+        Write-Host "Size $sizeGB GB, compessed $cRatio %"
     }
 }

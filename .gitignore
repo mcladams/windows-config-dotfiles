@@ -35,6 +35,7 @@ Docs_sym/
 Documents/*
 !Documents/PowerShell
 !Documents/PowerShell/*
+Documents/PowerShell/powershell.config.json
 Documents/PowerShell/Help/
 Documents/Powershell/Modules/*
 Documents/Powershell/Scripts/*
@@ -81,9 +82,6 @@ vscode-remote-wsl/
 *.log
 *~
 VulkanSDK/
-<<<<<<< HEAD
-=======
 .arduinoIDE/*
-Documents/PowerShell/powershell.config.json
 .wslconfig
->>>>>>> 2f81125 (Commit from old win installation)
+CrossDevice/
